@@ -1,20 +1,7 @@
 import PropTypes from "prop-types"
-import { Component } from "react"
 import { Li, Button, P } from "./ContactListStyled"
 
-export class ContactList extends Component {
-
-    state = {
-        contacts: [],
-        filter: '',
-        name: '',
-        number: ''
-    }
-    
-
-    render() {
-
-        const { contacts, onDelete } = this.props
+export const ContactList = ({ contacts, onDelete }) => {
 
 
         return (
@@ -28,7 +15,6 @@ export class ContactList extends Component {
                        <P>{contact.name} :</P>
                          <P>{contact.number}</P>
                         
-                          
                          <Button onClick={() => onDelete(contact.id)}>Delete</Button>
 
                      </Li>
@@ -37,7 +23,7 @@ export class ContactList extends Component {
          </ul>
     )
   }
-};
+
 
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(
@@ -46,7 +32,7 @@ ContactList.propTypes = {
             name: PropTypes.string.isRequired,
             number: PropTypes.string.isRequired,
         }).isRequired,
-    ).isRequired,
+    ),
     onDelete: PropTypes.func.isRequired,
 
 };

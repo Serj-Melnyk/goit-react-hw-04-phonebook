@@ -1,24 +1,9 @@
 import PropTypes from "prop-types"
-import { Component } from "react"
 import { Input, P } from "./FilterStyled"
 
-export class Filter extends Component {
 
 
-state = {
-  contacts: [],
-  filter: '',
-  name: '',
-  number: ''
-   
-}
-    
-    
-        
-    render() {
-        const {values, onChange } = this.props
-        // const { name, number} = this.state
-
+export const Filter = ({ values, onChange }) => {
 
         return (
             <div>
@@ -32,7 +17,7 @@ state = {
             </div>
         )
     }
-};
+
 
 Filter.propTypes = {
     values: PropTypes.string.isRequired,
